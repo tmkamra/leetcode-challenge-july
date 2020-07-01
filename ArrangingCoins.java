@@ -1,31 +1,24 @@
 package com.leetcode.july;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 public class ArrangingCoins {
 
 	public static void main(String[] args) {
 		ArrangingCoins arrangingCoins = new ArrangingCoins();
-		System.out.println(arrangingCoins.arrangeCoins(22));
+		System.out.println(arrangingCoins.arrangeCoins(0));
 	}
 
 	private int arrangeCoins(int n) 
 	{		
-		Map<Integer, Integer> hm = new HashMap<Integer, Integer>();
-		
-		int key=1;
+		int structuredLevels = 0;
+		int level=1;
 		while(n>=0)
 		{
-			n = n-key;
-			if(n>=0)
-			 hm.put(key, key);
-			else
-				return Collections.max(hm.keySet());
-			key++;
+			n = n-level;
+			if(n<0)
+				return structuredLevels;
+			structuredLevels = level;
+			level++;
 		}
-		
 		return 0;
 	}
 }
